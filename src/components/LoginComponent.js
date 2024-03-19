@@ -57,7 +57,11 @@ const LoginComponent = ({ currentUser, setCurrentUser }) => {
         <button className="btn btn-primary" onClick={loginHandler}>
           <span>登入</span>
         </button>
-        {message && <div className="alert alert-danger">{message}</div>}
+        {message && (
+          <div className="alert alert-danger" style={{ marginTop: "2rem" }}>
+            {message}
+          </div>
+        )}
       </div>
     </div>
   );
