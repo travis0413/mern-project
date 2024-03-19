@@ -71,7 +71,9 @@ const CourseComponent = ({ currentUser, setCurrentUser }) => {
                   <p style={{ margin: "0.5rem 0rem" }} className="card-text">
                     課程內容: {courses.Content}
                   </p>
-                  <p style={{ margin: "0.5rem 0rem" }}>學生人數: 0</p>
+                  <p style={{ margin: "0.5rem 0rem" }}>
+                    學生人數: {courses.Number}
+                  </p>
                   <p style={{ margin: "0.5rem 0rem" }}>
                     課程價格: {courses.Price}
                   </p>

@@ -32,6 +32,7 @@ const PostCourseComponent = ({ currentUser, setCurrentUser }) => {
       });
       alert("新課程已創建成功");
       navigate("/course");
+      window.location.reload();
     } else {
       setMessage("三個欄位都必須填寫");
     }

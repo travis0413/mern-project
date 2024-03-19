@@ -16,11 +16,7 @@ const EnrollComponent = ({ currentUser, setCurrentUser }) => {
     let courseURL = await axios.get(
       `http://localhost:3000/course?Title=${input}`
     );
-    if (!input) {
-      setCourse(courseURL.data);
-    } else if (input.length !== 0) {
-      setCourse(courseURL.data);
-    }
+    setCourse(courseURL.data);
   };
 
   const registerHandler = async (id, number, title, price, content) => {
@@ -28,18 +24,20 @@ const EnrollComponent = ({ currentUser, setCurrentUser }) => {
       `http://localhost:3000/enroll?EnrollId=${currentUser[0].id}&CourseId=${id}`
     );
     if (enrollIsRepeated.data.length === 0) {
+      await axios.patch(`http://localhost:3000/course/${id}`, {
+        Number: (number += 1),
+      });
       await axios.post("http://localhost:3000/enroll", {
         CourseId: id,
         EnrollId: currentUser[0].id,
         Title: title,
         Content: content,
         Price: price,
+        Number: number,
       });
-      await axios.patch(`http://localhost:3000/course/${id}`, {
-        Number: (number += 1),
-      });
-      alert("您已註冊該課程，即將移動到課程頁面");
+      alert("您已完成註冊該課程，即將移動到課程頁面");
       navigate("/course");
+      window.location.reload();
     } else {
       setMessage("您已註冊過該課程，請挑選其他課程");
     }

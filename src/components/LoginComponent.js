@@ -20,11 +20,12 @@ const LoginComponent = ({ currentUser, setCurrentUser }) => {
     axios
       .get(`http://localhost:3000/person?Email=${email}&Password=${password}`)
       .then((d) => {
-        if (d.data.length === 1) {
+        if (d.data.length === 1 && password !== "") {
           localStorage.setItem("User", JSON.stringify(d.data));
           setCurrentUser(localStorage.getItem("User"));
           alert("登入成功。您現在將被重新導向到個人資料頁面。");
-          window.location.href = "http://localhost:3001/profile";
+          navigate("/profile");
+          window.location.reload();
         } else {
           setMessage("您的信箱或密碼錯誤，請重新輸入");
         }

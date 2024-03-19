@@ -47,6 +47,7 @@ const RegisterComponent = () => {
       });
       alert("註冊完成，前往首頁");
       navigate("/");
+      window.location.reload();
     }
   };
 
