@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/mern-project/static/js/main.f30ca536.js",
+    "index.html": "/mern-project/index.html",
+    "main.f30ca536.js.map": "/mern-project/static/js/main.f30ca536.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.f30ca536.js"
+  ]
+}
