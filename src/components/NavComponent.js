@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const NavComponent = ({ currentUser, setCurrentUser }) => {
@@ -7,40 +7,6 @@ const NavComponent = ({ currentUser, setCurrentUser }) => {
     setCurrentUser(null);
     alert("即將登出系統，前往首頁");
   };
-
-  const active1Ref = useRef(null);
-  const active2Ref = useRef(null);
-  const active3Ref = useRef(null);
-  const active4Ref = useRef(null);
-  const active5Ref = useRef(null);
-  const active6Ref = useRef(null);
-  const active7Ref = useRef(null);
-  const active8Ref = useRef(null);
-
-  const activefunction = (e) => {
-    for (let i = 0; i < active8Ref.current.children.length; i++) {
-      active8Ref.current.children[i].children[0].classList.remove("active");
-    }
-    e.target.classList.add("active");
-  };
-
-  useEffect(() => {
-    if (window.location.pathname === "/") {
-      active1Ref.current.classList.add("active");
-    } else if (window.location.pathname === "/register") {
-      active2Ref.current.classList.add("active");
-    } else if (window.location.pathname === "/Login") {
-      active3Ref.current.classList.add("active");
-    } else if (window.location.pathname === "/profile") {
-      active4Ref.current.classList.add("active");
-    } else if (window.location.pathname === "/course") {
-      active5Ref.current.classList.add("active");
-    } else if (window.location.pathname === "/postCourse") {
-      active6Ref.current.classList.add("active");
-    } else if (window.location.pathname === "/enroll") {
-      active7Ref.current.classList.add("active");
-    }
-  }, []);
 
   return (
     <div>
@@ -60,16 +26,9 @@ const NavComponent = ({ currentUser, setCurrentUser }) => {
             </button>
 
             <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav" ref={active8Ref}>
+              <ul className="navbar-nav">
                 <li className="nav-item">
-                  <Link
-                    className="nav-link btn btn-outline-primary"
-                    to="/"
-                    ref={active1Ref}
-                    onClick={(e) => {
-                      activefunction(e);
-                    }}
-                  >
+                  <Link className="nav-link btn btn-outline-primary" to="/">
                     首頁
                   </Link>
                 </li>
@@ -78,10 +37,6 @@ const NavComponent = ({ currentUser, setCurrentUser }) => {
                     <Link
                       className="nav-link btn btn-outline-primary"
                       to="/register"
-                      ref={active2Ref}
-                      onClick={(e) => {
-                        activefunction(e);
-                      }}
                     >
                       註冊會員
                     </Link>
@@ -92,10 +47,6 @@ const NavComponent = ({ currentUser, setCurrentUser }) => {
                     <Link
                       className="nav-link btn btn-outline-primary"
                       to="/Login"
-                      ref={active3Ref}
-                      onClick={(e) => {
-                        activefunction(e);
-                      }}
                     >
                       會員登入
                     </Link>
@@ -117,10 +68,6 @@ const NavComponent = ({ currentUser, setCurrentUser }) => {
                     <Link
                       className="nav-link btn btn-outline-primary"
                       to="/profile"
-                      ref={active4Ref}
-                      onClick={(e) => {
-                        activefunction(e);
-                      }}
                     >
                       個人頁面
                     </Link>
@@ -131,10 +78,6 @@ const NavComponent = ({ currentUser, setCurrentUser }) => {
                     <Link
                       className="nav-link btn btn-outline-primary"
                       to="/course"
-                      ref={active5Ref}
-                      onClick={(e) => {
-                        activefunction(e);
-                      }}
                     >
                       課程頁面
                     </Link>
@@ -145,10 +88,6 @@ const NavComponent = ({ currentUser, setCurrentUser }) => {
                     <Link
                       className="nav-link btn btn-outline-primary"
                       to="/postCourse"
-                      ref={active6Ref}
-                      onClick={(e) => {
-                        activefunction(e);
-                      }}
                     >
                       新增課程
                     </Link>
@@ -159,10 +98,6 @@ const NavComponent = ({ currentUser, setCurrentUser }) => {
                     <Link
                       className="nav-link btn btn-outline-primary"
                       to="/enroll"
-                      ref={active7Ref}
-                      onClick={(e) => {
-                        activefunction(e);
-                      }}
                     >
                       註冊課程
                     </Link>

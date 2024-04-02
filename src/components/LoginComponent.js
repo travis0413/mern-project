@@ -22,10 +22,9 @@ const LoginComponent = ({ currentUser, setCurrentUser }) => {
       .then((d) => {
         if (d.data.length === 1 && password !== "") {
           localStorage.setItem("User", JSON.stringify(d.data));
-          setCurrentUser(localStorage.getItem("User"));
+          setCurrentUser(JSON.parse(localStorage.getItem("User")));
           alert("登入成功。您現在將被重新導向到個人資料頁面。");
           navigate("/profile");
-          window.location.reload();
         } else {
           setMessage("您的信箱或密碼錯誤，請重新輸入");
         }
